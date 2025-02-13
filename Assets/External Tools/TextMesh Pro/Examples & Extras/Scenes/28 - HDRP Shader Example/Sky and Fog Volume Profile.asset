@@ -31,7 +31,7 @@ MonoBehaviour:
   active: 1
   skyType:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 3
   cloudType:
     m_OverrideState: 1
     m_Value: 0
@@ -77,14 +77,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   skyIntensityMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   exposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 15
   multiplier:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 1124.36
   upperHemisphereLuxValue:
     m_OverrideState: 0
     m_Value: 1
@@ -104,17 +104,17 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   top:
-    m_OverrideState: 0
-    m_Value: {r: 0, g: 0, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.082352936, g: 0.2905912, b: 0.5529412, a: 1}
   middle:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0.3, g: 0.7, b: 1, a: 1}
   bottom:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.08679241, g: 0.010071487, b: 0, a: 1}
   gradientDiffusion:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 1.2
 --- !u!114 &8642024534454629425
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -139,7 +139,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0}
   bottomAltitude:
     m_OverrideState: 1
-    m_Value: 500
+    m_Value: 1200
   altitudeRange:
     m_OverrideState: 1
     m_Value: 2000
@@ -309,8 +309,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   scatteringTint:
-    m_OverrideState: 0
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.3847108, g: 0.24607334, b: 0.4037736, a: 1}
   powderEffectIntensity:
     m_OverrideState: 0
     m_Value: 0.25
@@ -319,7 +319,7 @@ MonoBehaviour:
     m_Value: 0.5
   densityMultiplier:
     m_OverrideState: 1
-    m_Value: 0.273
+    m_Value: 0.3
   shapeFactor:
     m_OverrideState: 1
     m_Value: 0.9
@@ -331,7 +331,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0}
   erosionFactor:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.8
   erosionScale:
     m_OverrideState: 1
     m_Value: 107
@@ -351,24 +351,24 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   sunLightDimmer:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   erosionOcclusion:
     m_OverrideState: 0
     m_Value: 0.1
   globalWindSpeed:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
-      mode: 1
+      mode: 2
       customValue: 100
-      additiveValue: 0
+      additiveValue: 52.5
       multiplyValue: 1
   orientation:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
-      mode: 1
+      mode: 2
       customValue: 0
-      additiveValue: 0
+      additiveValue: 113.06
       multiplyValue: 1
   altitudeDistortion:
     m_OverrideState: 0
