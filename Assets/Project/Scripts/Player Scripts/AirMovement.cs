@@ -52,11 +52,11 @@ public class AirMovement : MonoBehaviour
 
             dot =Vector3.Dot(transform.forward, initialForward) ;// Check if we are oriented "backward-ish" to invert roll
         
-            float rollAngle = horizontalXInput * rollSteeringSpeed * Time.fixedDeltaTime; // Negate for natural control
-            rollRotation = Quaternion.AngleAxis(rollAngle, transform.right); // Roll around the forward axis
+            float rollAngle = -horizontalXInput * rollSteeringSpeed * Time.fixedDeltaTime; // Negate for natural control
+            rollRotation = Quaternion.AngleAxis(rollAngle, transform.forward); // Roll around the forward axis
 
             float yawAngle = horizontalXInput * yawSteeringSpeed * Time.fixedDeltaTime;
-            yawRotation = Quaternion.AngleAxis(yawAngle,transform.up); // Yaw around world up axis, not local up
+            yawRotation = Quaternion.AngleAxis(yawAngle,Vector3.up); // Yaw around world up axis, not local up
             slerpedRotation = currentRotation * yawRotation*rollRotation;
         }
         else
@@ -75,7 +75,7 @@ public class AirMovement : MonoBehaviour
     void HandleForwardMovement()
     {
         // Move forward always in the plane's forward direction
-        Vector3 moveDirection = transform.forward;
-        rb.MovePosition(rb.position + moveDirection * forwardSpeed * Time.fixedDeltaTime); // Use MovePosition for kinematic movement
+        Vector3 moveDirection = (transform.forward);
+        rb.MovePosition(rb.position + moveDirection * forwardSpeed); // Use MovePosition for kinematic movement
     }
 }
