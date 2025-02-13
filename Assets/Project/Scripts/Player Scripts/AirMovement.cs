@@ -23,7 +23,7 @@ public class AirMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        horizontalXInput = Input.GetAxis("Horizontal");
+        horizontalXInput = Input.GetAxisRaw("Horizontal");
         verticalYInput = Input.GetAxis("Vertical");
 
         float rollAngle = horizontalXInput * rollSteeringSpeed * Time.fixedDeltaTime;
@@ -58,7 +58,7 @@ public class AirMovement : MonoBehaviour
 
         Vector3 moveDirection = transform.forward +(transform.right * horizontalXInput);
         moveDirection = moveDirection.normalized;
-        rb.AddForce(moveDirection* forwardSpeed, ForceMode.Force);
+        rb.MovePosition(transform.position + moveDirection * forwardSpeed);
 
         Debug.DrawRay(transform.position, transform.forward * forwardSpeed, Color.green);
         Debug.DrawRay(transform.position, transform.right * forwardSpeed, Color.red);
