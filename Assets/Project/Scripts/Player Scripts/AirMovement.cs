@@ -8,60 +8,74 @@ public class AirMovement : MonoBehaviour
 
     [HorizontalLine("Movement Stats", 3, FixedColor.CherryRed)]
     [SerializeField] float forwardSpeed = 10f;
-    [SerializeField] float steeringSpeed = 5f; // General steering (pitch and roll) - might not be used directly anymore
-    [SerializeField] float rollSteeringSpeed = 5f; // Existing roll steering speed
-    [SerializeField] float yawSteeringSpeed = 2f;  // New yaw steering speed - start with a lower value as yaw can be quite powerful
-    [SerializeField] float rollStabilizationSpeed = 5f; // Adjust as needed
+    [SerializeField] float rollSteeringSpeed = 5f;
+    [SerializeField] float yawSteeringSpeed = 2f;
+    [SerializeField] float rollStabilizationSpeed = 5f;
 
     [HorizontalLine("Debug Stats", 3, FixedColor.CherryRed)]
     [SerializeField] float horizontalXInput;
-    [SerializeField] float verticalYInput;
 
-    [SerializeField] Quaternion targetRotation; // For debugging and visualization
-    [SerializeField] Quaternion slerpedRotation; // For debugging and visualization
-    [SerializeField] Vector3 testDirection;
+    [SerializeField] Quaternion targetRotation;
+    [SerializeField] Quaternion slerpedRotation;
+    [SerializeField] float dot;
+
+    Vector3 initialForward;
+
+    private void Start()
+    {
+        initialForward = transform.forward;
+    }
 
     void FixedUpdate()
     {
         horizontalXInput = Input.GetAxisRaw("Horizontal");
-        verticalYInput = Input.GetAxis("Vertical");
 
-        float rollAngle = horizontalXInput * rollSteeringSpeed * Time.fixedDeltaTime;
-        Quaternion rollRotation = Quaternion.AngleAxis(rollAngle, transform.right);
+        HandleSteeringAndStabilization();
+        HandleForwardMovement();
 
-        float yawAngle = horizontalXInput * yawSteeringSpeed * Time.fixedDeltaTime;
-        Quaternion yawRotation = Quaternion.AngleAxis(yawAngle, transform.up);
-
-        Quaternion currentRotation = rb.rotation; // Get current rotation
-
-        if (Mathf.Abs(horizontalXInput) < 0.1f)
-        {
-            // 1. Calculate Target Rotation (Zero Roll)
-            Vector3 currentEuler = currentRotation.eulerAngles;
-            Vector3 targetEuler = new Vector3(0, currentEuler.y, 0f); // Keep Pitch (X), Yaw (Y), Reset Roll (Z to 0)
-            targetRotation = Quaternion.Euler(targetEuler); // Convert back to Quaternion
-            Debug.Log($"Target Rotation Euler: {targetEuler}"); // Debugging
-
-            // 2. Slerp Towards Target Rotation
-            float slerpT = rollStabilizationSpeed * Time.fixedDeltaTime; // 't' value for Slerp, based on stabilization speed and time
-            slerpedRotation = Quaternion.Slerp(currentRotation, targetRotation, slerpT);
-        }
-        else
-        {
-
-            slerpedRotation = currentRotation * yawRotation * rollRotation; // Apply steering rotations
-        }
-
-        // 3. Apply Slerped Rotation to Rigidbody
-        rb.MoveRotation(slerpedRotation);
-
-
-        Vector3 moveDirection = transform.forward +(transform.right * horizontalXInput);
-        moveDirection = moveDirection.normalized;
-        rb.MovePosition(transform.position + moveDirection * forwardSpeed);
-
+        // Debug Rays - let's keep these to visualize what's happening
         Debug.DrawRay(transform.position, transform.forward * forwardSpeed, Color.green);
         Debug.DrawRay(transform.position, transform.right * forwardSpeed, Color.red);
         Debug.DrawRay(transform.position, transform.up * forwardSpeed, Color.blue);
+    }
+
+    void HandleSteeringAndStabilization()
+    {
+        Quaternion currentRotation = rb.rotation;
+        Quaternion rollRotation = Quaternion.identity;
+        Quaternion yawRotation = Quaternion.identity;
+
+        if (Mathf.Abs(horizontalXInput) >= 0.1f)
+        {
+            // Steering based on input
+           
+
+            dot =Vector3.Dot(transform.forward, initialForward) ;// Check if we are oriented "backward-ish" to invert roll
+        
+            float rollAngle = horizontalXInput * rollSteeringSpeed * Time.fixedDeltaTime; // Negate for natural control
+            rollRotation = Quaternion.AngleAxis(rollAngle, transform.right); // Roll around the forward axis
+
+            float yawAngle = horizontalXInput * yawSteeringSpeed * Time.fixedDeltaTime;
+            yawRotation = Quaternion.AngleAxis(yawAngle,transform.up); // Yaw around world up axis, not local up
+            slerpedRotation = currentRotation * yawRotation*rollRotation;
+        }
+        else
+        {
+            // Roll Stabilization when no horizontal input
+            Vector3 currentEuler = currentRotation.eulerAngles;
+            Vector3 targetEuler = new Vector3(currentEuler.x, currentEuler.y, 0f); // Keep X and Y, zero out Z (roll)
+            targetRotation = Quaternion.Euler(targetEuler);
+            float slerpT = rollStabilizationSpeed * Time.fixedDeltaTime;
+            slerpedRotation = Quaternion.Slerp(currentRotation, targetRotation, slerpT);
+        }
+        rb.MoveRotation(slerpedRotation); // Apply the rotation
+    }
+
+
+    void HandleForwardMovement()
+    {
+        // Move forward always in the plane's forward direction
+        Vector3 moveDirection = transform.forward;
+        rb.MovePosition(rb.position + moveDirection * forwardSpeed * Time.fixedDeltaTime); // Use MovePosition for kinematic movement
     }
 }
