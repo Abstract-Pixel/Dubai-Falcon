@@ -51,13 +51,31 @@ public class AirMovement : MonoBehaviour
            
 
             dot =Vector3.Dot(transform.forward, initialForward) ;// Check if we are oriented "backward-ish" to invert roll
-        
+            Vector3 currentRolldirection = transform.forward;
+            float lerpSpeed = 2f; // Adjustable speed for the Lerp - you can tweak this
+
+            if (dot < 0)
+            {
+                currentRolldirection = Vector3.Lerp(transform.forward, -transform.forward, Time.fixedDeltaTime * lerpSpeed);
+            }
+            else if (dot > 0)
+            {
+                // Let's simplify this for now and focus on the negative dot case
+                // If you need special behavior for positive dot, we can add it back later, tell me what you want to achieve.
+                currentRolldirection = transform.forward; // For positive dot, just use forward direction for now.
+                // If you *do* want to Lerp for positive dot, let me know what you want to Lerp *to* and *why*.
+
+                // Original code for positive dot (if you need to revisit it, but let's simplify for now):
+                // Vector3 absoluteForward = new Vector3(Mathf.Abs(transform.forward.x), Mathf.Abs(transform.forward.y), Mathf.Abs(transform.forward.z));
+                // currentRolldirection = Vector3.Lerp(transform.forward,absoluteForward, Time.fixedDeltaTime * lerpSpeed);
+            }
+
             float rollAngle = -horizontalXInput * rollSteeringSpeed * Time.fixedDeltaTime; // Negate for natural control
-            rollRotation = Quaternion.AngleAxis(rollAngle, transform.forward); // Roll around the forward axis
+            rollRotation = Quaternion.AngleAxis(rollAngle,currentRolldirection); // Roll around the forward axis
 
             float yawAngle = horizontalXInput * yawSteeringSpeed * Time.fixedDeltaTime;
             yawRotation = Quaternion.AngleAxis(yawAngle,Vector3.up); // Yaw around world up axis, not local up
-            slerpedRotation = currentRotation * yawRotation*rollRotation;
+            slerpedRotation = currentRotation *rollRotation* yawRotation;
         }
         else
         {
