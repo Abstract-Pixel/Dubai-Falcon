@@ -24503,6 +24503,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+      propertyPath: maxPitch
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+      propertyPath: minPitch
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: ascendInput
       value: 32
       objectReference: {fileID: 0}
