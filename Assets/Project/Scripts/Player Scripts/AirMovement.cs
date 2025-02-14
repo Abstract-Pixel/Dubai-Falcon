@@ -110,30 +110,68 @@ public class AirMovement : MonoBehaviour
         #region Pitch Rotation Control
 
         float pitchAngle = verticalInputValue* pitchRotationSpeed * Time.fixedDeltaTime;
-        currentPitchRotation = Quaternion.AngleAxis(pitchAngle, transform.right);
+        currentPitchRotation = Quaternion.AngleAxis(pitchAngle, Vector3.right);
         finalRotation*= currentPitchRotation;
 
-        float normalizedAngle = finalRotation.eulerAngles.x;
-        if (normalizedAngle >= 360f || normalizedAngle <= -360f) // More robust wrap-around check
-        {
-            normalizedAngle = Mathf.Repeat(normalizedAngle, 360f); // Use Mathf.Repeat for wrap-around
-            if (normalizedAngle > 180f) normalizedAngle -= 360f; // Normalize to -180 to 180
-        }
-        normalizedAngle = Mathf.Clamp(normalizedAngle,minPitch,maxPitch);
-        finalRotation.eulerAngles = new Vector3(normalizedAngle,finalRotation.eulerAngles.y,finalRotation.eulerAngles.z);
+        Vector3 eulerRotation = finalRotation.eulerAngles;
+        eulerRotation.x =ClampAngle(eulerRotation.x, minPitch, maxPitch);
+        finalRotation.eulerAngles = eulerRotation;
 
         #endregion
 
         rb.MoveRotation(finalRotation); // Apply the rotation
-
-        rb.MovePosition(rb.position + transform.forward * forwardSpeed);
+        float velocity = forwardSpeed;
         if (verticalInputValue ==1|| verticalInputValue == 0)
         {
-            rb.AddForce(transform.forward * currentAccelerationBuildUp/divingDivider, ForceMode.Acceleration);
+            velocity = forwardSpeed + currentAccelerationBuildUp/divingDivider;
         }
         else if (verticalInputValue ==-1)
         {
-            rb.AddForce(transform.forward * currentAccelerationBuildUp, ForceMode.Acceleration);
+            velocity = forwardSpeed + currentAccelerationBuildUp;
         }
+        rb.MovePosition(rb.position + transform.forward * velocity);
+    }
+
+    // Helper function to handle angle clamping correctly (0-360 and negative angles)
+    private float ClampAngle(float angle, float min, float max)
+    {
+        angle = Mathf.Repeat(angle, 360f);
+        min = Mathf.Repeat(min, 360f);
+        max = Mathf.Repeat(max, 360f);
+        bool reverse = false;
+        if (min > max)
+        {
+            reverse = true;
+            float temp = min;
+            min = max;
+            max = temp;
+        }
+        if (((angle > max) | (angle < min)) & !reverse)
+        {
+            float disMin = Mathf.Abs(angle - min);
+            float disMax = Mathf.Abs(angle - max);
+            if (disMin < disMax)
+            {
+                return min;
+            }
+            else
+            {
+                return max;
+            }
+        }
+        if (((angle < max) & (angle > min)) & reverse)
+        {
+            float disMin = Mathf.Abs(angle - min);
+            float disMax = Mathf.Abs(angle - max);
+            if (disMin < disMax)
+            {
+                return min;
+            }
+            else
+            {
+                return max;
+            }
+        }
+        return angle;
     }
 }
