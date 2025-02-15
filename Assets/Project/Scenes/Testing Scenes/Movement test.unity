@@ -25039,6 +25039,14 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+      propertyPath: controllerAscendInput
+      value: 333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+      propertyPath: controllerDivingInput
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: maxAccelerationBuildUp
       value: 5
       objectReference: {fileID: 0}

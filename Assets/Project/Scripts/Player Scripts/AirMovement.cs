@@ -25,6 +25,8 @@ public class AirMovement : MonoBehaviour
     [HorizontalLine("Speeding/ Vertical Control Settings", 3, FixedColor.DustyBlue)]
     [SerializeField] KeyCode divingInput;
     [SerializeField] KeyCode ascendInput;
+    [SerializeField] KeyCode controllerDivingInput;
+    [SerializeField] KeyCode controllerAscendInput;
     [SerializeField] float buildUpSpeed;
     [SerializeField] float maxAccelerationBuildUp;
     [SerializeField] float divingDivider;
@@ -49,12 +51,12 @@ public class AirMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(divingInput))
+        if (Input.GetKey(divingInput) || Input.GetKey(controllerDivingInput))
         {
             verticalInputValue =1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, maxAccelerationBuildUp, Time.deltaTime*buildUpSpeed);
         }
-        else if (Input.GetKey(ascendInput))
+        else if (Input.GetKey(ascendInput)|| Input.GetKey(controllerAscendInput))
         {
             verticalInputValue=-1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, 0, Time.deltaTime*deacceleration);
