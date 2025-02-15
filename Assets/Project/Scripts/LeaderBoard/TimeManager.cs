@@ -10,6 +10,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] bool debug = false;
     int minutes;
     int seconds;
+    int nanoseconds;
     float elapsedTime;
 
     private void Start()
@@ -26,7 +27,7 @@ public class TimeManager : MonoBehaviour
             minutes = (int)(elapsedTime / 60f);
             seconds = (int)(elapsedTime % 60f);
             float fractionalSeconds = elapsedTime - Mathf.Floor(elapsedTime);
-            int nanoseconds = (int)(fractionalSeconds * 100);
+            nanoseconds = (int)(fractionalSeconds * 100);
             timerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, nanoseconds);
         }
         if (debug && isRunning)
@@ -45,12 +46,7 @@ public class TimeManager : MonoBehaviour
     public void StopTimer()
     {
         isRunning = false;
-        leaderboard.AddEntry(elapsedTime);
-    }
-
-    public void ToggleTimer()
-    {
-        isRunning = !isRunning;
+        leaderboard.AddEntry(minutes,seconds,nanoseconds,elapsedTime);
     }
 
     public void ResetTimer()
