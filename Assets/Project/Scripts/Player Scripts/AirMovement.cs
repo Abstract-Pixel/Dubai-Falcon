@@ -131,7 +131,8 @@ public class AirMovement : MonoBehaviour
         {
             velocity = forwardSpeed + currentAccelerationBuildUp;
         }
-        rb.MovePosition(rb.position + transform.forward * velocity);
+        // rb.MovePosition(rb.position + transform.forward * velocity);
+        rb.linearVelocity = transform.forward *velocity;
     }
 
     // Helper function to handle angle clamping correctly (0-360 and negative angles)

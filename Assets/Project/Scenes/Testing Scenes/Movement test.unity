@@ -25024,7 +25024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: forwardSpeed
-      value: 0.1
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: divingDivider
@@ -25048,7 +25048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4358436937726679140, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: maxAccelerationBuildUp
-      value: 5
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 6137416817604571902, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: m_LocalPosition.x
