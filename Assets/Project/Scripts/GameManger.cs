@@ -15,10 +15,17 @@ public class GameManger : MonoBehaviour
     {
         time = GetComponent<TimeManager>();
         instance = this;
-        losescreen.SetActive(false);
-        PauseUI.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //losescreen?.SetActive(false);
+        // PauseUI?.SetActive(false);
+
+        PlayerDeath.OnFalconDie+=LoseState;
+        WinCondition.OnAllHoopsCollected+=WinState;
+    }
+
+    private void OnDisable()
+    {
+        PlayerDeath.OnFalconDie -=LoseState;
+        WinCondition.OnAllHoopsCollected-=WinState;
     }
 
     private void Update()
@@ -40,28 +47,29 @@ public class GameManger : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0;
-        PauseUI.SetActive(true);
+        //PauseUI?.SetActive(true);
         ispaused = true;
     }
 
     public void WinState()
     {
-        winscreen.SetActive(true);
         Time.timeScale = 0;
-        time.StopTimer();
+        // winscreen?.SetActive(true);
+        time?.StopTimer();
         Leaderboard.instance.UpdateLeaderboardUI();
+        Leaderboard.instance.SaveLeaderboard();
     }
 
     public void LoseState()
     {
-        losescreen.SetActive(true);
         Time.timeScale = 0;
+        //losescreen?.SetActive(true);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        PauseUI.SetActive(false);
+        //PauseUI.SetActive(false);
         ispaused = false;
     }
 
