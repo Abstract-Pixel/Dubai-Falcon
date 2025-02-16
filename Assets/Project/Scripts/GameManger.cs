@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
+    static GameManger instance;
     bool ispaused;
     [SerializeField] string sceneName;
     [SerializeField] GameObject losescreen;
@@ -12,6 +13,7 @@ public class GameManger : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         losescreen.SetActive(false);
         PauseUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;

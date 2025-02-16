@@ -14,7 +14,6 @@ public class TimeManager : MonoBehaviour
     private void Start()
     {
         StartTimer();
-        leaderboard = GetComponent<Leaderboard>();
     }
 
     private void Update()
