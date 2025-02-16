@@ -9,7 +9,6 @@ public class GameManger : MonoBehaviour
     [SerializeField] GameObject losescreen;
     [SerializeField] GameObject winscreen;
     [SerializeField] GameObject PauseUI;
-    [SerializeField] Leaderboard leaderboard;
 
     private void Start()
     {
@@ -46,7 +45,7 @@ public class GameManger : MonoBehaviour
     {
         winscreen.SetActive(true);
         Time.timeScale = 0;
-        leaderboard.UpdateLeaderboardUI();
+        Leaderboard.instance.UpdateLeaderboardUI();
     }
 
     public void LoseState()
@@ -71,6 +70,6 @@ public class GameManger : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        leaderboard.SaveLeaderboard();
+        Leaderboard.instance.SaveLeaderboard();
     }
 }

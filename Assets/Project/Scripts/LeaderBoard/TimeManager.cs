@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    Leaderboard leaderboard;
     public TextMeshProUGUI timerText;
     float startTime;
     bool isRunning = false;
@@ -40,7 +39,7 @@ public class TimeManager : MonoBehaviour
     public void StopTimer()
     {
         isRunning = false;
-        leaderboard.AddEntry(minutes,seconds,nanoseconds,elapsedTime);
+        Leaderboard.instance.AddEntry(minutes,seconds,nanoseconds,elapsedTime);
     }
 
     public void ResetTimer()

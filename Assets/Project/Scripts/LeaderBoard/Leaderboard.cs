@@ -14,11 +14,17 @@ public class LeaderboardEntry
 
 public class Leaderboard : MonoBehaviour
 {
+    public static Leaderboard instance;
     public Transform leaderboardContainer;
     public GameObject entryPrefab;
     public TextMeshProUGUI extraEntryText;
     [SerializeField] List<LeaderboardEntry> leaderboardEntries = new List<LeaderboardEntry>();
     private LeaderboardEntry lastAddedEntry;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     public void AddEntry(int minutes, int seconds, int nanoseconds, float totalTime)
     {
