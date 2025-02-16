@@ -16,7 +16,9 @@ public class Leaderboard : MonoBehaviour
 {
     public Transform leaderboardContainer;
     public GameObject entryPrefab;
+    public TextMeshProUGUI extraEntryText;
     [SerializeField] List<LeaderboardEntry> leaderboardEntries = new List<LeaderboardEntry>();
+    private LeaderboardEntry lastAddedEntry;
 
     public void AddEntry(int minutes, int seconds, int nanoseconds, float totalTime)
     {
@@ -25,25 +27,55 @@ public class Leaderboard : MonoBehaviour
         newEntry.minutes = minutes;
         newEntry.seconds = seconds;
         newEntry.nanoseconds = nanoseconds;
-        newEntry.entryObject = Instantiate(entryPrefab, leaderboardContainer, false);
         leaderboardEntries.Add(newEntry);
+        lastAddedEntry = newEntry;
+        newEntry.entryObject = entryPrefab;
+    }
+
+    public void UpdateLeaderboardUI()
+    {
+        foreach (Transform child in leaderboardContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        if (extraEntryText != null)
+            extraEntryText.text = "";
+
         leaderboardEntries.Sort((a, b) => a.elapsedTime.CompareTo(b.elapsedTime));
+
         for (int i = 0; i < leaderboardEntries.Count; i++)
         {
             LeaderboardEntry entry = leaderboardEntries[i];
+            entry.entryObject = Instantiate(entryPrefab, leaderboardContainer, false);
             entry.entryObject.transform.SetSiblingIndex(i);
             string formattedTime = string.Format("{0:00}:{1:00}:{2:000}", entry.minutes, entry.seconds, entry.nanoseconds);
             TextMeshProUGUI entryText = entry.entryObject.GetComponent<TextMeshProUGUI>();
+
             if (entryText != null)
             {
                 entryText.text = string.Format("{0}. {1}", i + 1, formattedTime);
                 entryText.color = Color.white;
             }
+
+            if (i >= 10)
+            {
+                entry.entryObject.SetActive(false);
+                if (extraEntryText != null)
+                {
+                    extraEntryText.text += string.Format("{0}. {1}\n", i + 1, formattedTime);
+                }
+            }
         }
-        TextMeshProUGUI newEntryText = newEntry.entryObject.GetComponent<TextMeshProUGUI>();
-        if (newEntryText != null)
-        {
-            newEntryText.color = Color.yellow;
-        }
+    }
+
+    public void SaveLeaderboard()
+    {
+        LeaderboardSaveLoad.SaveLeaderboard(leaderboardEntries);
+    }
+
+    public void LoadLeaderboard()
+    {
+        leaderboardEntries = LeaderboardSaveLoad.LoadLeaderboard();
+        UpdateLeaderboardUI();
     }
 }
