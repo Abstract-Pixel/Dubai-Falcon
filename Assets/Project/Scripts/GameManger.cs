@@ -9,9 +9,11 @@ public class GameManger : MonoBehaviour
     [SerializeField] GameObject losescreen;
     [SerializeField] GameObject winscreen;
     [SerializeField] GameObject PauseUI;
+    [SerializeField] TimeManager time;
 
     private void Start()
     {
+        time = GetComponent<TimeManager>();
         instance = this;
         losescreen.SetActive(false);
         PauseUI.SetActive(false);
@@ -46,6 +48,7 @@ public class GameManger : MonoBehaviour
     {
         winscreen.SetActive(true);
         Time.timeScale = 0;
+        time.StopTimer();
         Leaderboard.instance.UpdateLeaderboardUI();
     }
 
