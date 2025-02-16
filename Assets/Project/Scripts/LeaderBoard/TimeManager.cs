@@ -5,9 +5,8 @@ public class TimeManager : MonoBehaviour
 {
     Leaderboard leaderboard;
     public TextMeshProUGUI timerText;
-    private float startTime;
-    private bool isRunning = false;
-    [SerializeField] bool debug = false;
+    float startTime;
+    bool isRunning = false;
     int minutes;
     int seconds;
     int nanoseconds;
@@ -30,17 +29,12 @@ public class TimeManager : MonoBehaviour
             nanoseconds = (int)(fractionalSeconds * 100);
             timerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, nanoseconds);
         }
-        if (debug && isRunning)
-        {
-            StopTimer();
-        }
     }
 
     public void StartTimer()
     {
         startTime = Time.time;
         isRunning = true;
-        debug = false;
     }
 
     public void StopTimer()
