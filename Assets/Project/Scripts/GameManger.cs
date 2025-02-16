@@ -1,10 +1,9 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
-    static GameManger instance;
+    public static GameManger instance;
     bool ispaused;
     [SerializeField] string sceneName;
     [SerializeField] GameObject losescreen;
