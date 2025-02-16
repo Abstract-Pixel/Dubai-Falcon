@@ -13,22 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 7
---- !u!114 &-8774177231823515632
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 13
-  hdPluginSubTargetMaterialVersions:
-    m_Keys: []
-    m_Values: 
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -36,13 +20,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GM-Grid-08-URP
-  m_Shader: {fileID: -6465566751694194690, guid: b4bb8b5c4862a416fa38d705dedc4d96, type: 3}
+  m_Name: GM-Grid-13-URP var 2
+  m_Shader: {fileID: -6465566751694194690, guid: 44f8dfd6d74d14469bb0ef07b544f59e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _BLEND_MODE_SCREEN
-  - _COORDINATES_OBJECT
   - _DISABLE_SSR_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -62,11 +44,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Map_Sides:
-        m_Texture: {fileID: 2800000, guid: 94051d232a3fb43fb8f02bfbd659f735, type: 3}
+        m_Texture: {fileID: 2800000, guid: 26229d456837f42329bf794f88d22b1e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Base_Map_Top:
-        m_Texture: {fileID: 2800000, guid: 94051d232a3fb43fb8f02bfbd659f735, type: 3}
+        m_Texture: {fileID: 2800000, guid: 846b67b1a87a841d69f93de4e3067b88, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Texture:
+        m_Texture: {fileID: 2800000, guid: 846b67b1a87a841d69f93de4e3067b88, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emission_Map:
@@ -97,16 +83,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Side_Texture:
-        m_Texture: {fileID: 2800000, guid: e05cb5944643d41f4b5535949504b302, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Sides_Texture:
-        m_Texture: {fileID: 2800000, guid: 94051d232a3fb43fb8f02bfbd659f735, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Top_Texture:
-        m_Texture: {fileID: 2800000, guid: e05cb5944643d41f4b5535949504b302, type: 3}
+        m_Texture: {fileID: 2800000, guid: 846b67b1a87a841d69f93de4e3067b88, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -129,31 +111,23 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
-    - _BLEND_MODE: 3
-    - _Base_Map_Multiplier: 2
+    - _Base_Map_Multiplier: 1
     - _Base_Multiply: 1
-    - _Base_Offset: 0.5
     - _Base_Tiling: 1
     - _Blend: 0
     - _BlendMode: 0
     - _BlendModePreserveSpecular: 1
-    - _Blend_Opacity: 1
-    - _COORDINATES: 0
     - _CastShadows: 1
     - _ConservativeDepthOffsetEnable: 0
     - _Cull: 2
     - _CullMode: 2
     - _CullModeForward: 2
     - _DepthOffsetEnable: 0
-    - _Dirt: 1
-    - _Dirt_Blend: 0.627
-    - _Dirt_Height: 0.735
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
     - _DstBlend2: 0
-    - _Edge_Sharpness: 50
     - _Emission: 0
     - _Emission_Map_Multiplier: 1
     - _Emission_Tiling: 1
@@ -162,10 +136,9 @@ Material:
     - _ExcludeFromTUAndAA: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _Metallic: 0.5
+    - _Metallic: 0.6
     - _Metallic_Map_Multiplier: 1
     - _Metallic_Tiling: 1
-    - _Offset1: 0
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
     - _QueueControl: 0
@@ -177,8 +150,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Sides_Tiling: 0
-    - _Smoothness: 0
+    - _Smoothness: 0.5
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
@@ -193,7 +165,7 @@ Material:
     - _SupportDecals: 1
     - _Surface: 0
     - _SurfaceType: 0
-    - _Tiling: 1
+    - _Tiling: 0.01
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -211,20 +183,31 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Base_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
-    - _Base_Color_Sides: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
-    - _Base_Color_Top: {r: 0.30980393, g: 0.26666668, b: 0.92156863, a: 1}
-    - _Base_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Dirt_Color: {r: 0.41961265, g: 0.09852261, b: 0.7735849, a: 0}
+    - _Base_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+    - _Base_Color_Sides: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+    - _Base_Color_Top: {r: 0.3679245, g: 0.35577607, b: 0.35577607, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Offset: {r: 1, g: 0.5, b: 0, a: 0}
-    - _Side_Color: {r: 0.7929048, g: 0.7783019, b: 1, a: 1}
-    - _Side_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Sides_Color: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 0}
+    - _Sides_Color: {r: 0.36862746, g: 0.35686275, b: 0.35686275, a: 0}
     - _Sides_Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Top_Color: {r: 0.7019589, g: 0.68293875, b: 0.9716981, a: 1}
+    - _Top_Color: {r: 0.36862746, g: 0.35686275, b: 0.35686275, a: 0}
     - _Top_Offset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &8152184422436208097
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 13
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 
