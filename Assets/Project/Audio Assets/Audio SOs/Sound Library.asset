@@ -13,5 +13,45 @@ MonoBehaviour:
   m_Name: Sound Library
   m_EditorClassIdentifier: 
   soundOptionsDictionary:
-    serializedKvps: []
+    serializedKvps:
+    - Key: FalconDead
+      Value: {fileID: 11400000, guid: c8c063c34abe0694eb9bf9e4aace96fb, type: 2}
+      index: 0
+      isKeyRepeated: 0
+    - Key: FalconDiving
+      Value: {fileID: 11400000, guid: cefbd4cedcb04e74c9aa5b08c2c5aa31, type: 2}
+      index: 1
+      isKeyRepeated: 0
+    - Key: FalconUp
+      Value: {fileID: 11400000, guid: fb810da3e87cd854faa67e924d9ebf22, type: 2}
+      index: 2
+      isKeyRepeated: 0
+    - Key: GameLose
+      Value: {fileID: 11400000, guid: 844bc454e51122247b775404b747d65c, type: 2}
+      index: 3
+      isKeyRepeated: 0
+    - Key: GameWin
+      Value: {fileID: 11400000, guid: d1b9cd26b0396a04fa5d409b1297afb4, type: 2}
+      index: 4
+      isKeyRepeated: 0
+    - Key: WindDiving
+      Value: {fileID: 11400000, guid: 772ba243366226248b21e8372a645177, type: 2}
+      index: 5
+      isKeyRepeated: 0
+    - Key: WingsFlap
+      Value: {fileID: 11400000, guid: 3f461fc1b25634647a0107496b341a68, type: 2}
+      index: 6
+      isKeyRepeated: 0
+    - Key: GameMusic
+      Value: {fileID: 11400000, guid: f92794d8d1522254ba1654010627fc2c, type: 2}
+      index: 7
+      isKeyRepeated: 0
+    - Key: City
+      Value: {fileID: 11400000, guid: b5646bb3ef358a64eb09ac9bf2d2fd90, type: 2}
+      index: 8
+      isKeyRepeated: 0
+    - Key: Wind
+      Value: {fileID: 11400000, guid: c9bedee61531b5a438665163178be49f, type: 2}
+      index: 9
+      isKeyRepeated: 0
     dividerPos: 0.33
