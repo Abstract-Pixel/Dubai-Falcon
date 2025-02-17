@@ -1,5 +1,6 @@
 using CustomInspector;
 using EditorAttributes;
+using MoreMountains.Tools;
 using UnityEngine;
 using ReadOnly = CustomInspector.ReadOnlyAttribute;
 
@@ -44,6 +45,13 @@ public class AirMovement : MonoBehaviour
 
     Vector3 initialForward;
 
+    string falconDivingKey = "FalconDiving";
+    string falconFlyingUpKey = "FalconUp";
+    string windDivingSoundKey = "WindDiving";
+
+    bool divingSoundPlayed;
+    bool flyingUpSoundPlayed;
+
     private void Start()
     {
         initialForward = transform.forward;
@@ -55,11 +63,31 @@ public class AirMovement : MonoBehaviour
         {
             verticalInputValue =1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, maxAccelerationBuildUp, Time.deltaTime*buildUpSpeed);
+
+            if (!divingSoundPlayed)
+            {
+                int probability = Random.Range(0, 2);
+                divingSoundPlayed = true;
+                flyingUpSoundPlayed = false;
+                if (probability==0) return;
+                AudioManager.Instance.PlayAudio(falconDivingKey);
+            }
         }
         else if (Input.GetKey(ascendInput)|| Input.GetKey(controllerAscendInput))
         {
             verticalInputValue=-1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, 0, Time.deltaTime*deacceleration);
+           
+
+            if (!flyingUpSoundPlayed)
+            {
+                int probability = Random.Range(0, 2);
+                flyingUpSoundPlayed = true;
+                divingSoundPlayed = false;
+                if (probability ==0) return;
+                AudioManager.Instance.PlayAudio(falconFlyingUpKey);
+            }
+
         }
         else
         {

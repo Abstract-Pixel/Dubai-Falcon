@@ -4445,7 +4445,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1502664350131395133, guid: 002d0704e81fbdf4f818992d5d5953c2, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5328519153107872853, guid: 002d0704e81fbdf4f818992d5d5953c2, type: 3}
       propertyPath: m_Name
@@ -9657,7 +9657,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877151434}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fb39cf1d437fd04da65385bc0388384, type: 3}
   m_Name: 
@@ -25297,6 +25297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4761148477067651500, guid: 18619157ccee5e94a8e4b36ee8c4e693, type: 3}
+      propertyPath: soundLibrary
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a24877018897f74088e746a72c76918, type: 2}
     - target: {fileID: 7216731663081942544, guid: 18619157ccee5e94a8e4b36ee8c4e693, type: 3}
       propertyPath: m_LocalPosition.x
       value: -657.6331
