@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WingsFlapping
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 53fdcecf358d24d48a8f42dbf6c12950, type: 3}
-  minVolume: 0
-  maxVolume: 0
-  minPitch: 0
-  maxPitch: 0
+  minVolume: 1
+  maxVolume: 1
+  minPitch: 0.9
+  maxPitch: 1.1
   randomAudioClips: []
   soundPlayOptions:
     Initialized: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
     Volume: 1
     Pitch: 1
     ID: 1503195255
-    Fade: 0
+    Fade: 1
     FadeInitialVolume: 0
-    FadeDuration: 0
+    FadeDuration: 0.5
     FadeTween:
       MMTweenDefinitionType: 0
       MMTweenCurve: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     BypassListenerEffects: 0
     BypassReverbZones: 0
     Priority: 0
-    ReverbZoneMix: 0
+    ReverbZoneMix: 0.6
     DopplerLevel: 0
     Location: {x: 0, y: 0, z: 0}
     Spread: 0

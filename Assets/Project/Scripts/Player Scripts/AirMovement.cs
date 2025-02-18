@@ -48,9 +48,11 @@ public class AirMovement : MonoBehaviour
     string falconDivingKey = "FalconDiving";
     string falconFlyingUpKey = "FalconUp";
     string windDivingSoundKey = "WindDiving";
+    string wingsFlappingSoundKey = "WingsFlap";
 
     bool divingSoundPlayed;
     bool flyingUpSoundPlayed;
+    bool wingsFlapped;
 
     private void Start()
     {
@@ -68,7 +70,10 @@ public class AirMovement : MonoBehaviour
             {
                 int probability = Random.Range(0, 2);
                 divingSoundPlayed = true;
+                wingsFlapped = false;
                 flyingUpSoundPlayed = false;
+                AudioManager.Instance.PlayAudio(windDivingSoundKey);
+                AudioManager.Instance.StopAudio(wingsFlappingSoundKey);
                 if (probability==0) return;
                 AudioManager.Instance.PlayAudio(falconDivingKey);
             }
@@ -78,21 +83,34 @@ public class AirMovement : MonoBehaviour
             verticalInputValue=-1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, 0, Time.deltaTime*deacceleration);
            
+            if(!wingsFlapped)
+            {
+                AudioManager.Instance.PlayAudio(wingsFlappingSoundKey);
+                wingsFlapped = true;
+            }
 
             if (!flyingUpSoundPlayed)
             {
                 int probability = Random.Range(0, 2);
                 flyingUpSoundPlayed = true;
                 divingSoundPlayed = false;
+                AudioManager.Instance.StopAudio(windDivingSoundKey);
                 if (probability ==0) return;
                 AudioManager.Instance.PlayAudio(falconFlyingUpKey);
             }
+
 
         }
         else
         {
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, 0, Time.deltaTime*deacceleration);
             verticalInputValue =0;
+
+            if (!wingsFlapped)
+            {
+                AudioManager.Instance.PlayAudio(wingsFlappingSoundKey);
+                wingsFlapped = true;
+            }
         }
     }
 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wind Diving Sound
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 17332824be220f24889013b20b1c40c2, type: 3}
-  minVolume: 0
-  maxVolume: 0
-  minPitch: 0
-  maxPitch: 0
+  minVolume: 0.15
+  maxVolume: 0.4
+  minPitch: 1
+  maxPitch: 1.3
   randomAudioClips: []
   soundPlayOptions:
     Initialized: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
     Volume: 0.5
     Pitch: 1
     ID: 788779554
-    Fade: 0
+    Fade: 1
     FadeInitialVolume: 0
-    FadeDuration: 0
+    FadeDuration: 1.5
     FadeTween:
       MMTweenDefinitionType: 0
       MMTweenCurve: 0

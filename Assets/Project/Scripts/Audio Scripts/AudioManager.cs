@@ -1,5 +1,6 @@
 using UnityEngine;
 using MoreMountains.Tools;
+using UnityEngine.InputSystem;
 
 public class AudioManager : MonoBehaviour
 {
@@ -81,6 +82,39 @@ public class AudioManager : MonoBehaviour
         var fadeDuration = soundPlayOptions.FadeDuration;
         var fadeTween = soundPlayOptions.FadeTween;
         MMSoundManagerSoundFadeEvent.Trigger(MMSoundManagerSoundFadeEvent.Modes.StopFade, ID, fadeDuration, 0, fadeTween);
+    }
+
+    public void FadeOut(string soundKey)
+    {
+        if (soundLibrary.soundOptionsDictionary.TryGetValue(soundKey, out var sound))
+        {
+            var soundPlayOptions = sound.soundPlayOptions;
+            var ID = soundPlayOptions.ID;
+            var fadeDuration = soundPlayOptions.FadeDuration;
+            var fadeTween = soundPlayOptions.FadeTween;
+            MMSoundManagerSoundFadeEvent.Trigger(MMSoundManagerSoundFadeEvent.Modes.StopFade, ID, fadeDuration, 0, fadeTween);
+        }
+    }
+
+    public void FadeIn(SoundOptions sound)
+    {
+        var soundPlayOptions = sound.soundPlayOptions;
+        var ID = soundPlayOptions.ID;
+        var fadeDuration = soundPlayOptions.FadeDuration;
+        var fadeTween = soundPlayOptions.FadeTween;
+        MMSoundManagerSoundFadeEvent.Trigger(MMSoundManagerSoundFadeEvent.Modes.StopFade, ID, fadeDuration, sound.soundPlayOptions.Volume, fadeTween);
+    }
+
+    public void FadeIn(string soundKey)
+    {
+        if (soundLibrary.soundOptionsDictionary.TryGetValue(soundKey, out var sound))
+        {
+            var soundPlayOptions = sound.soundPlayOptions;
+            var ID = soundPlayOptions.ID;
+            var fadeDuration = soundPlayOptions.FadeDuration;
+            var fadeTween = soundPlayOptions.FadeTween;
+            MMSoundManagerSoundFadeEvent.Trigger(MMSoundManagerSoundFadeEvent.Modes.PlayFade, ID, fadeDuration, sound.soundPlayOptions.Volume, fadeTween);
+        }
     }
 
     public void RandomizeValueBetweenMinAndMax(ref float valueToAlter, float min, float max)

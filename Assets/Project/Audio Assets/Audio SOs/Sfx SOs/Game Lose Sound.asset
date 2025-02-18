@@ -23,8 +23,8 @@ MonoBehaviour:
     MmSoundManagerTrack: 0
     AudioGroup: {fileID: 0}
     Loop: 0
-    Volume: 0.5
-    Pitch: 0
+    Volume: 0.3
+    Pitch: 1
     ID: -1395209822
     Fade: 1
     FadeInitialVolume: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     BypassListenerEffects: 0
     BypassReverbZones: 0
     Priority: 0
-    ReverbZoneMix: 0
+    ReverbZoneMix: 1
     DopplerLevel: 0
     Location: {x: 0, y: 0, z: 0}
     Spread: 0

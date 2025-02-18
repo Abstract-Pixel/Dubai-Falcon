@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Falcon Diving
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: b2b2e416cdb240342813a570c871fc94, type: 3}
-  minVolume: 0
-  maxVolume: 0.2
+  minVolume: 0.1
+  maxVolume: 0.4
   minPitch: 0.74
   maxPitch: 1.1
   randomAudioClips:
@@ -58,7 +58,7 @@ MonoBehaviour:
     BypassListenerEffects: 0
     BypassReverbZones: 0
     Priority: 0
-    ReverbZoneMix: 0
+    ReverbZoneMix: 0.4
     DopplerLevel: 0
     Location: {x: 0, y: 0, z: 0}
     Spread: 0

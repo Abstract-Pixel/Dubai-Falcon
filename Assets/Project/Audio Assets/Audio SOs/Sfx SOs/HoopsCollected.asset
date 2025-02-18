@@ -10,24 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b98edf1eb40e2f4f8ae3debdf8f188c, type: 3}
-  m_Name: Falcon Flying UP
+  m_Name: HoopsCollected
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 6fe5c18daf14d8944825f1438ccc5909, type: 3}
-  minVolume: 0
-  maxVolume: 0
-  minPitch: 0
-  maxPitch: 0
-  randomAudioClips:
-  - {fileID: 8300000, guid: 6fe5c18daf14d8944825f1438ccc5909, type: 3}
-  - {fileID: 8300000, guid: 79484f33f0c54d14a8b051124e3608b3, type: 3}
+  audioClip: {fileID: 8300000, guid: 1cbdbe67c69bc8841b1f033ddcd7c280, type: 3}
+  minVolume: 0.4
+  maxVolume: 0.8
+  minPitch: 0.9
+  maxPitch: 1.1
+  randomAudioClips: []
   soundPlayOptions:
     Initialized: 0
     MmSoundManagerTrack: 0
     AudioGroup: {fileID: 0}
     Loop: 0
-    Volume: 0.5
+    Volume: 1
     Pitch: 1
-    ID: -1052433729
+    ID: -1470298828
     Fade: 0
     FadeInitialVolume: 0
     FadeDuration: 0
@@ -58,7 +56,7 @@ MonoBehaviour:
     BypassListenerEffects: 0
     BypassReverbZones: 0
     Priority: 0
-    ReverbZoneMix: 0.3
+    ReverbZoneMix: 0.15
     DopplerLevel: 0
     Location: {x: 0, y: 0, z: 0}
     Spread: 0

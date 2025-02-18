@@ -23,15 +23,15 @@ MonoBehaviour:
     MmSoundManagerTrack: 1
     AudioGroup: {fileID: -2273146209696275378, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
     Loop: 1
-    Volume: 0.5
+    Volume: 0.15
     Pitch: 1
     ID: 1264922079
     Fade: 1
     FadeInitialVolume: 0
-    FadeDuration: 1
+    FadeDuration: 3
     FadeTween:
       MMTweenDefinitionType: 0
-      MMTweenCurve: 0
+      MMTweenCurve: 19
       Curve:
         serializedVersion: 2
         m_Curve: []
@@ -56,7 +56,7 @@ MonoBehaviour:
     BypassListenerEffects: 0
     BypassReverbZones: 0
     Priority: 0
-    ReverbZoneMix: 0
+    ReverbZoneMix: 0.4
     DopplerLevel: 0
     Location: {x: 0, y: 0, z: 0}
     Spread: 0

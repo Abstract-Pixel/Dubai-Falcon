@@ -54,4 +54,8 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: c9bedee61531b5a438665163178be49f, type: 2}
       index: 9
       isKeyRepeated: 0
+    - Key: HoopsCollected
+      Value: {fileID: 11400000, guid: 193a3f095034a1f428d69793fe1c5ba2, type: 2}
+      index: 10
+      isKeyRepeated: 0
     dividerPos: 0.33
