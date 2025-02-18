@@ -7,7 +7,7 @@ using TMPro;
 [Serializable]
 public abstract class DropDownSetting<OptionDataType, SettingsDataType>
 {
-    [SerializeField][HideInInspector] public string name;
+    [SerializeField] public string name;
     [SerializeField] protected TMP_Dropdown dropDownUI;
     [SerializeField] protected OptionDataType[ ] optionsArray;
 
@@ -16,8 +16,7 @@ public abstract class DropDownSetting<OptionDataType, SettingsDataType>
         InitializeDropDownUiOptions();
         GetSettingData(out SettingsDataType currentSettingValue);
         dropDownUI.onValueChanged.AddListener(SetSettingData);
-        int dropDownIndex = Array.IndexOf(optionsArray, currentSettingValue);
-        dropDownUI.value = dropDownIndex;
+        dropDownUI.value = (int)(object)currentSettingValue;
         dropDownUI.RefreshShownValue();
     }
 

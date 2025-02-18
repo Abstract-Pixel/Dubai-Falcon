@@ -12,7 +12,7 @@ public class DLSSSettings : DropDownSetting<string, int>
 
     public DLSSSettings()
     {
-        name = GetType().Name; ;
+        name = "DLSS"; 
     }
     protected override void GetSettingData(out int data)
     {
@@ -33,6 +33,7 @@ public class DLSSSettings : DropDownSetting<string, int>
             HDAdditionalCameraData hdCam = camera.GetComponent<HDAdditionalCameraData>();
             hdCam.deepLearningSuperSamplingQuality = (uint)data;
             PlayerPrefs.SetInt(name, data);
+            Debug.Log(HDDynamicResolutionPlatformCapabilities.DLSSDetected);
         }
     }
 }
