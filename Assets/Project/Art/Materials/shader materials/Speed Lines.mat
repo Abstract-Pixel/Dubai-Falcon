@@ -158,7 +158,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
-    - _Centre_Mask_Size: 0.153
+    - _Centre_Mask_Size: 0.21154459
     - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -201,7 +201,7 @@ Material:
     - _IridescenceThickness: 1
     - _Line_Amount: 0.6
     - _Line_Density: 0.512
-    - _Line_FallOff: 0.25
+    - _Line_FallOff: 0.35
     - _Line_Offset: 1.5
     - _LinkDetailsWithBase: 1
     - _Mask_Fade_Amount: 1
@@ -275,7 +275,7 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Line_Color: {r: 0.3605767, g: 0.5300606, b: 0.5773585, a: 1}
+    - _Line_Color: {r: 0.7528302, g: 0.946072, b: 1, a: 1}
     - _Radial_Centre: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

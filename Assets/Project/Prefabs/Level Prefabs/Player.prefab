@@ -249,6 +249,75 @@ Transform:
   - {fileID: 5054534848294217519}
   m_Father: {fileID: 6137416817604571902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6619512962009030628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1325742408116790932}
+  - component: {fileID: 92431062351693117}
+  m_Layer: 0
+  m_Name: SpeedLines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1325742408116790932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619512962009030628}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 752.02344, y: -366.20905, z: -5.954812}
+  m_LocalScale: {x: 1, y: 1, z: 0.19948135}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6137416817604571902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92431062351693117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619512962009030628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  fadeRadius: 0
+  priority: 0
+  customPasses:
+  - rid: 3722570780532277248
+  injectionPoint: 1
+  m_TargetCamera: {fileID: 0}
+  useTargetCamera: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3722570780532277248
+      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
+      data:
+        m_Name: Speed Lines
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: -1
+        passFoldout: 0
+        m_Version: 0
+        fullscreenPassMaterial: {fileID: 2100000, guid: 57a9e1e542bf52c42b059b78c7db5526, type: 2}
+        materialPassIndex: 0
+        materialPassName: DrawProcedural
+        fetchColorBuffer: 0
 --- !u!1 &6849664706592347851
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +588,7 @@ Transform:
   m_Children:
   - {fileID: 8428422544190237668}
   - {fileID: 132475833976475116}
+  - {fileID: 1325742408116790932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2784776905569937224
@@ -685,8 +755,9 @@ MonoBehaviour:
   player: {fileID: 4358436937726679140}
   speedLinesMaterial: {fileID: 2100000, guid: 57a9e1e542bf52c42b059b78c7db5526, type: 2}
   maskSizeProperty: _Centre_Mask_Size
-  transitionDuration: 1
+  transitionDuration: 2
   divingTargetMaskSize: 0.15
+  startMaskSize: 0.7
   transitionCurve:
     serializedVersion: 2
     m_Curve:
@@ -700,15 +771,25 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.56273377
+      value: 0.8885335
+      inSlope: -1.5311768
+      outSlope: -1.5311768
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.15323369
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -2.2592685
+      outSlope: -2.2592685
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.19486308
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   timer: 0
+  currentMaskSize: 0

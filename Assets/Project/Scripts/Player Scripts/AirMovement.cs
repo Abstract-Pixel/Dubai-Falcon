@@ -1,8 +1,10 @@
 using CustomInspector;
 using EditorAttributes;
 using MoreMountains.Tools;
+using System;
 using UnityEngine;
 using ReadOnly = CustomInspector.ReadOnlyAttribute;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 public class AirMovement : MonoBehaviour
@@ -45,6 +47,10 @@ public class AirMovement : MonoBehaviour
 
     Vector3 initialForward;
 
+    public Action OnFalconDiving;
+    public Action OnFalconFlyingUp;
+    public Action OnFalconIdle;
+
     string falconDivingKey = "FalconDiving";
     string falconFlyingUpKey = "FalconUp";
     string windDivingSoundKey = "WindDiving";
@@ -65,7 +71,7 @@ public class AirMovement : MonoBehaviour
         {
             verticalInputValue =1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, maxAccelerationBuildUp, Time.deltaTime*buildUpSpeed);
-
+            OnFalconDiving?.Invoke();
             if (!divingSoundPlayed)
             {
                 int probability = Random.Range(0, 2);
@@ -82,8 +88,13 @@ public class AirMovement : MonoBehaviour
         {
             verticalInputValue=-1;
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, 0, Time.deltaTime*deacceleration);
-           
-            if(!wingsFlapped)
+
+            if (currentAccelerationBuildUp>3)
+            {
+                OnFalconFlyingUp?.Invoke();
+            }
+            
+            if (!wingsFlapped)
             {
                 AudioManager.Instance.PlayAudio(wingsFlappingSoundKey);
                 wingsFlapped = true;
@@ -105,6 +116,7 @@ public class AirMovement : MonoBehaviour
         {
             currentAccelerationBuildUp = Mathf.Lerp(currentAccelerationBuildUp, 0, Time.deltaTime*deacceleration);
             verticalInputValue =0;
+            OnFalconIdle?.Invoke();
 
             if (!wingsFlapped)
             {
