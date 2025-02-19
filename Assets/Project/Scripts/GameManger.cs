@@ -12,6 +12,9 @@ public class GameManger : MonoBehaviour
     [SerializeField] GameObject leaderboardText;
     [SerializeField] TimeManager time;
 
+    string loseSoundKey = "GameLose";
+    string winSoundKey = "GameWin";
+
     private void Start()
     {
         time = GetComponent<TimeManager>();
@@ -60,12 +63,14 @@ public class GameManger : MonoBehaviour
         time?.StopTimer();
         Leaderboard.instance.UpdateLeaderboardUI();
         Leaderboard.instance.SaveLeaderboard();
+        AudioManager.Instance.PlayAudio(winSoundKey);
     }
 
     public void LoseState()
     {
         Time.timeScale = 0;
         losescreen?.SetActive(true);
+        AudioManager.Instance.PlayAudio(loseSoundKey);
     }
 
     public void ResumeGame()
