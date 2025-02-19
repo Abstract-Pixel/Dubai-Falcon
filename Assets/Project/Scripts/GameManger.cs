@@ -9,6 +9,7 @@ public class GameManger : MonoBehaviour
     [SerializeField] GameObject losescreen;
     [SerializeField] GameObject winscreen;
     [SerializeField] GameObject PauseUI;
+    [SerializeField] GameObject leaderboardText;
     [SerializeField] TimeManager time;
 
     string loseSoundKey = "GameLose";
@@ -18,9 +19,10 @@ public class GameManger : MonoBehaviour
     {
         time = GetComponent<TimeManager>();
         instance = this;
-        //losescreen?.SetActive(false);
-        // PauseUI?.SetActive(false);
-
+        losescreen?.SetActive(false);
+        PauseUI?.SetActive(false);
+        winscreen?.SetActive(false);
+        leaderboardText?.SetActive(false);
         PlayerDeath.OnFalconDie+=LoseState;
         WinCondition.OnAllHoopsCollected+=WinState;
     }
@@ -33,7 +35,6 @@ public class GameManger : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (ispaused)
@@ -50,14 +51,15 @@ public class GameManger : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0;
-        //PauseUI?.SetActive(true);
+        PauseUI?.SetActive(true);
         ispaused = true;
     }
 
     public void WinState()
     {
         Time.timeScale = 0;
-        // winscreen?.SetActive(true);
+        winscreen?.SetActive(true);
+        leaderboardText?.SetActive(true);
         time?.StopTimer();
         Leaderboard.instance.UpdateLeaderboardUI();
         Leaderboard.instance.SaveLeaderboard();
@@ -67,20 +69,21 @@ public class GameManger : MonoBehaviour
     public void LoseState()
     {
         Time.timeScale = 0;
-        //losescreen?.SetActive(true);
+        losescreen?.SetActive(true);
         AudioManager.Instance.PlayAudio(loseSoundKey);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        //PauseUI.SetActive(false);
+        PauseUI.SetActive(false);
         ispaused = false;
     }
 
     public void RestartGame()
     {
         ResumeGame();
+        Leaderboard.instance.SaveLeaderboard();
         SceneManager.LoadScene(sceneName);
     }
 
