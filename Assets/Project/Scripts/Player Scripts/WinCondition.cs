@@ -8,6 +8,12 @@ public class WinCondition : MonoBehaviour
     [ReadOnly][SerializeField] int currentHoopsCollected;
 
     public static Action OnAllHoopsCollected;
+
+    string gameMusicSoundKey = "GameMusic";
+    string windDivingSoundKey = "WindDiving";
+    string wingsFlappingSoundKey = "WingsFlap";
+    string falconFlyingUpSoundKey = "FalconUp";
+    string FalconDivingSoundKey = "FalconDiving";
     void Start()
     {
         Hoop.OnHoopCollected +=handleHoopCollection;
@@ -24,6 +30,11 @@ public class WinCondition : MonoBehaviour
         if(currentHoopsCollected >= hoopsRequiredToWin)
         {
                OnAllHoopsCollected?.Invoke();
+            AudioManager.Instance.StopAudio(falconFlyingUpSoundKey);
+            AudioManager.Instance.StopAudio(gameMusicSoundKey);
+            AudioManager.Instance.StopAudio(windDivingSoundKey);
+            AudioManager.Instance.StopAudio(wingsFlappingSoundKey);
+            AudioManager.Instance.StopAudio(FalconDivingSoundKey);
         }
     }
 }
