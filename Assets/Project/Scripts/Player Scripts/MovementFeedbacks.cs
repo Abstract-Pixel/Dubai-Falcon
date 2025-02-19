@@ -11,7 +11,8 @@ public class MovementFeedbacks : MonoBehaviour
     [SerializeField] string maskSizeProperty = "_Centre_Mask_Size";
 
     [Header("Diving Transition Settings")]
-    [SerializeField] float transitionDuration;
+    [SerializeField] float backToDefaultDuration;
+    [SerializeField] float SpeedingDuration;
     [SerializeField] float divingTargetMaskSize;
     [SerializeField] float startMaskSize = 0.7f;
     [SerializeField] AnimationCurve transitionCurve;
@@ -70,6 +71,7 @@ public class MovementFeedbacks : MonoBehaviour
         {
             isTransitioning = false;
             isReturningToZero = true;
+            initialMaskSize  = currentMaskSize;
             timer = 0f;
         }
     }
@@ -90,12 +92,12 @@ public class MovementFeedbacks : MonoBehaviour
         if (isTransitioning)
         {
             timer += Time.deltaTime;
-            float normalizedTime = Mathf.Clamp01(timer / transitionDuration);
+            float normalizedTime = Mathf.Clamp01(timer / SpeedingDuration);
             float curveValue = transitionCurve.Evaluate(normalizedTime);
             currentMaskSize = Mathf.Lerp(initialMaskSize, divingTargetMaskSize, curveValue);
             speedLinesMaterial.SetFloat(maskSizeProperty, currentMaskSize);
 
-            if (timer >= transitionDuration)
+            if (timer >= SpeedingDuration)
             {
                 isTransitioning = false;
                 isReturningToZero = true;
@@ -106,12 +108,12 @@ public class MovementFeedbacks : MonoBehaviour
         else if (isReturningToZero)
         {
             timer += Time.deltaTime;
-            float normalizedTime = Mathf.Clamp01(timer / transitionDuration);
+            float normalizedTime = Mathf.Clamp01(timer / backToDefaultDuration);
             float curveValue = transitionCurve.Evaluate(normalizedTime);
             currentMaskSize = Mathf.Lerp(initialMaskSize, startMaskSize, curveValue);
             speedLinesMaterial.SetFloat(maskSizeProperty, currentMaskSize);
 
-            if (timer >= transitionDuration)
+            if (timer >= backToDefaultDuration)
             {
                 isReturningToZero = false;
             }
