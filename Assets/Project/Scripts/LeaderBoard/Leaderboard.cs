@@ -48,7 +48,7 @@ public class Leaderboard : MonoBehaviour
             extraEntryText.text = "";
 
         leaderboardEntries.Sort((a, b) => a.elapsedTime.CompareTo(b.elapsedTime));
-
+        entryPrefab.SetActive(true);
         for (int i = 0; i < leaderboardEntries.Count; i++)
         {
             LeaderboardEntry entry = leaderboardEntries[i];
