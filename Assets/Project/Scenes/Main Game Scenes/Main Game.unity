@@ -18333,6 +18333,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 510454349369071308, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: RotationSpeed.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 510454349369071308, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: RotationSpeed.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.513478
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5000007
+      objectReference: {fileID: 0}
     - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
       propertyPath: m_LocalPosition.x
       value: -655.6
@@ -18355,11 +18375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4758630140865065031, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18377,7 +18397,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hoop (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7537878548844435796, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: Orbiting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537878548844435796, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: RotationSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537878548844435796, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: RotationSpeed.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537878548844435796, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: RotationSpeed.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537878548844435796, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
+      propertyPath: RotationSpeed.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7537878548844435796, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -21745,10 +21786,6 @@ PrefabInstance:
     - target: {fileID: 5278742448658115325, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
       propertyPath: m_Name
       value: Hoop
-      objectReference: {fileID: 0}
-    - target: {fileID: 5278742448658115325, guid: 4d50fe9179c86844bafa2a9d855c4f41, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
