@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.15265131, g: 0, b: 1, a: 1}
   m_AmbientGroundColor: {r: 1, g: 0, b: 0.09661579, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.32280168, g: 0.43970177, b: 0.735849, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -26460,6 +26460,14 @@ PrefabInstance:
     - target: {fileID: 6137416817604571902, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657541078937631815, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+      propertyPath: SpeedingDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657541078937631815, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+      propertyPath: backToDefaultDuration
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7945030108694137748, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
       propertyPath: m_Name
