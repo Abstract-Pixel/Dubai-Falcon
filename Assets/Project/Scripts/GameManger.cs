@@ -84,6 +84,11 @@ public class GameManger : MonoBehaviour
     {
         ResumeGame();
         Leaderboard.instance.SaveLeaderboard();
+        losescreen?.SetActive(false);
+        PauseUI?.SetActive(false);
+        winscreen?.SetActive(false);
+        leaderboardText?.SetActive(false);
+        LoadGame();
     }
 
     public void LoadGame()
