@@ -80,7 +80,7 @@ public class AirMovement : MonoBehaviour
                 flyingUpSoundPlayed = false;
                 AudioManager.Instance.PlayAudio(windDivingSoundKey);
                 AudioManager.Instance.StopAudio(wingsFlappingSoundKey);
-                if (probability==0) return;
+                if (probability<1) return;
                 AudioManager.Instance.PlayAudio(falconDivingKey);
             }
         }
@@ -106,7 +106,7 @@ public class AirMovement : MonoBehaviour
                 flyingUpSoundPlayed = true;
                 divingSoundPlayed = false;
                 AudioManager.Instance.StopAudio(windDivingSoundKey);
-                if (probability ==0) return;
+                if (probability <1) return;
                 AudioManager.Instance.PlayAudio(falconFlyingUpKey);
             }
 
