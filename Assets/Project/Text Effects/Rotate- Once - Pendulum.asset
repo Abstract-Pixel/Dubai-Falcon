@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4b0ef2dd414493a6f1da97633e9e39, type: 3}
+  m_Name: Rotate- Once - Pendulum
+  m_EditorClassIdentifier: 
+  effectTag: pendulum
+  startCharIndex: 0
+  charLength: 132
+  animationType: 3
+  fixedDuration: 1
+  durationPerChar: 1.2
+  timeBetweenChars: 0.15
+  noDelayForChars: 1
+  reverseCharOrder: 0
+  easingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2501454
+      value: 0.9858093
+      inSlope: 0.12004341
+      outSlope: 0.12004341
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.103235014
+    - serializedVersion: 3
+      time: 0.55691105
+      value: -0.969113
+      inSlope: 0.017568717
+      outSlope: 0.017568717
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.39392638
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9988266
+      value: -0.022818446
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  clampBetween0And1: 0
+  centerOffset: {x: 0, y: 40}
+  startAngle: 0
+  endAngle: -10
