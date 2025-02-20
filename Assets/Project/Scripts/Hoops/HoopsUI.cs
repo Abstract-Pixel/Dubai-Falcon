@@ -8,6 +8,7 @@ public class HoopsUI : MonoBehaviour
     int hoopsCollected;
     [SerializeField] TextMeshProUGUI hoopsText;
     [SelfFill][SerializeField]MMF_Player hoopsTextFeedback;
+    [SerializeField] string extraText;
 
 
     private void OnEnable()
@@ -22,7 +23,7 @@ public class HoopsUI : MonoBehaviour
 
     private void Start()
     {
-        hoopsText.text = "Hoops: " + hoopsCollected;
+        hoopsText.text = "Hoops: " + hoopsCollected +extraText;
     }
 
 
