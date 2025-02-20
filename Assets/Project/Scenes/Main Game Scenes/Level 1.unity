@@ -8534,7 +8534,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hoops: 20/35'
+  m_text: 'Hoops: 20/27'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3199409928624324999b9336dd1ed8f3, type: 2}
   m_sharedMaterial: {fileID: 21032597133445202, guid: 3199409928624324999b9336dd1ed8f3, type: 2}
@@ -8822,7 +8822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb39cf1d437fd04da65385bc0388384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoopsRequiredToWin: 1
+  hoopsRequiredToWin: 27
   currentHoopsCollected: 0
 --- !u!33 &3998932110448807139
 MeshFilter:
