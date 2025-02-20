@@ -4,6 +4,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
+    [SerializeField] string startText;
     float startTime;
     bool isRunning = false;
     int minutes;
@@ -25,7 +26,7 @@ public class TimeManager : MonoBehaviour
             seconds = (int)(elapsedTime % 60f);
             float fractionalSeconds = elapsedTime - Mathf.Floor(elapsedTime);
             nanoseconds = (int)(fractionalSeconds * 100);
-            timerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, nanoseconds);
+            timerText.text = startText + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, nanoseconds);
         }
     }
 
