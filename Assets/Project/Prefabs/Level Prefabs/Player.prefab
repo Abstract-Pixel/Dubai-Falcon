@@ -708,7 +708,7 @@ MonoBehaviour:
   forwardSpeed: 24
   rollSteeringSpeed: 20
   yawSteeringSpeed: 20.16
-  rollStabilizationSpeed: 5
+  rollStabilizationSpeed: 1.5
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
   finalRotation: {x: 0, y: 0, z: 0, w: 0}
   horizontalInputValue: 0
