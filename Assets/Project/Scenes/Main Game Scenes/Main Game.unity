@@ -21744,6 +21744,8 @@ MonoBehaviour:
     _prefab: Assets/External Tools/Decimate/Grid Master/URP/Prefabs/GM-Cube-URP.prefab
   - _gameObject: {fileID: 1060261404}
     _prefab: Assets/Project/Prefabs/Level Prefabs/Player.prefab
+  - _gameObject: {fileID: 7843269583850102082}
+    _prefab: Assets/Project/Prefabs/Level Prefabs/Birds.prefab
   - _gameObject: {fileID: 378116636}
     _prefab: Assets/Project/Prefabs/Level Prefabs/Hoop (1).prefab
   - _gameObject: {fileID: 1677155077}
@@ -25170,6 +25172,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+--- !u!1 &7843269583850102082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7638497529116768059, guid: a97b58b63b71b2e4d84bf4d21dbc6d04, type: 3}
+  m_PrefabInstance: {fileID: 7843269583850102081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
