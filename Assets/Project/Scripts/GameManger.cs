@@ -84,6 +84,10 @@ public class GameManger : MonoBehaviour
     {
         ResumeGame();
         Leaderboard.instance.SaveLeaderboard();
+    }
+
+    public void LoadGame()
+    {
         SceneManager.LoadScene(sceneName);
     }
 
