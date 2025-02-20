@@ -708,7 +708,7 @@ MonoBehaviour:
   forwardSpeed: 24
   rollSteeringSpeed: 20
   yawSteeringSpeed: 20.16
-  rollStabilizationSpeed: 0.5
+  rollStabilizationSpeed: 5
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
   finalRotation: {x: 0, y: 0, z: 0, w: 0}
   horizontalInputValue: 0
@@ -720,7 +720,7 @@ MonoBehaviour:
   buildUpSpeed: 1.49
   maxAccelerationBuildUp: 500
   divingDivider: 1
-  deacceleration: 0.1
+  deacceleration: 0.12
   pitchRotationSpeed: 20
   minPitch: -60
   maxPitch: 70
