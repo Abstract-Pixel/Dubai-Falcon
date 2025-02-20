@@ -74,13 +74,13 @@ public class AirMovement : MonoBehaviour
             OnFalconDiving?.Invoke();
             if (!divingSoundPlayed)
             {
-                int probability = Random.Range(0, 2);
+                int probability = Random.Range(0, 3);
                 divingSoundPlayed = true;
                 wingsFlapped = false;
                 flyingUpSoundPlayed = false;
                 AudioManager.Instance.PlayAudio(windDivingSoundKey);
                 AudioManager.Instance.StopAudio(wingsFlappingSoundKey);
-                if (probability<1) return;
+                if (probability<2) return;
                 AudioManager.Instance.PlayAudio(falconDivingKey);
             }
         }
@@ -102,11 +102,11 @@ public class AirMovement : MonoBehaviour
 
             if (!flyingUpSoundPlayed)
             {
-                int probability = Random.Range(0, 2);
+                int probability = Random.Range(0, 3);
                 flyingUpSoundPlayed = true;
                 divingSoundPlayed = false;
                 AudioManager.Instance.StopAudio(windDivingSoundKey);
-                if (probability <1) return;
+                if (probability <2) return;
                 AudioManager.Instance.PlayAudio(falconFlyingUpKey);
             }
 
