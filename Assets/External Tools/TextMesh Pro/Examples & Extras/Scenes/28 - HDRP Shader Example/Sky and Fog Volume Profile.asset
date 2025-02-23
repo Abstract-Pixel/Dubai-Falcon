@@ -165,13 +165,13 @@ MonoBehaviour:
     m_Value: 1318.2
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 25000
+    m_Value: 15000
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.6150943, g: 0.2592197, b: 0.16131714, a: 1}
+    m_Value: {r: 0.8415094, g: 0.32866496, b: 0.3798689, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 1
     m_Value: 1
@@ -232,10 +232,10 @@ MonoBehaviour:
     m_Value: 1
   planetRadius:
     m_OverrideState: 1
-    m_Value: 1000
+    m_Value: 10000
   renderingSpace:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   centerMode:
     m_OverrideState: 1
     m_Value: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: -6378.1, z: 0}
   windOrientation:
     m_OverrideState: 1
-    m_Value: 208
+    m_Value: 171
   windSpeed:
     m_OverrideState: 1
     m_Value: 1000
