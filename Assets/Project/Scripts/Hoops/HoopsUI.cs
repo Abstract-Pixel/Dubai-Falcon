@@ -30,7 +30,7 @@ public class HoopsUI : MonoBehaviour
     void UpdateHoopsCollectedText()
     {
         hoopsCollected++;
-        hoopsText.text = "Hoops: " + hoopsCollected;
+        hoopsText.text = "Hoops: " + hoopsCollected + extraText;
         hoopsTextFeedback?.PlayFeedbacks();
     }
 }
