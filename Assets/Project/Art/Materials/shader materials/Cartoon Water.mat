@@ -122,7 +122,7 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
-    - _Big_Foam_Scale: 1
+    - _Big_Foam_Scale: 8
     - _Blend: 0
     - _BlendMode: 0
     - _BlendModePreserveSpecular: 1
@@ -148,20 +148,20 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnvironmentReflections: 1
     - _ExcludeFromTUAndAA: 0
-    - _Flow_Scale: 1
-    - _Flow_Speed: 0.0001
-    - _Flow_Strength: 0.005
-    - _Foam_Threshold: -0
+    - _Flow_Scale: 5.81
+    - _Flow_Speed: 0.0003
+    - _Flow_Strength: 0.011
+    - _Foam_Threshold: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
     - _Metallic: 0
-    - _Noise_Contrast: 1.31
+    - _Noise_Contrast: 0.9
     - _Noise_Distortion_Scale: 0.5
-    - _Noise_Rotation: 0.0075
-    - _Noise_Strength: 0.3
+    - _Noise_Rotation: 0.2
+    - _Noise_Strength: 10000
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _Parallax: 0.005
@@ -203,8 +203,8 @@ Material:
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
     - _Water_Noise_Scale: 5.13
-    - _Wave_Amplitude: 0.15
-    - _Wave_Frequency: 3
+    - _Wave_Amplitude: 0.01
+    - _Wave_Frequency: 20
     - _WorkflowMode: 1
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
@@ -213,16 +213,16 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Dark_Foam_Color: {r: 0.13636878, g: 0.593528, b: 0.6754716, a: 0}
+    - _Dark_Foam_Color: {r: 0.1372549, g: 0.6406463, b: 0.6745098, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Light_Foam_Color: {r: 0.8478819, g: 0.95164686, b: 0.9622641, a: 0}
-    - _Noise_Distortion_Scale: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _Light_Foam_Color: {r: 0.9607843, g: 0.9479013, b: 0.84705883, a: 0}
+    - _Noise_Distortion_Scale: {r: 10, g: 10, b: 0, a: 0}
     - _Scroll_Speed: {r: 0.01, g: 0.005, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Water_Color: {r: 0.22153787, g: 0.81736505, b: 0.9245283, a: 0}
-    - _Water_Noise_Color: {r: 0.09006048, g: 0.30522233, b: 0.3433962, a: 0}
-    - _Water_Noise_Scale: {r: 1, g: 0, b: 0, a: 0}
+    - _Water_Color: {r: 0.21960783, g: 0.8599684, b: 0.9254902, a: 0}
+    - _Water_Noise_Color: {r: 0.20392157, g: 0.5176471, b: 0.51214445, a: 0}
+    - _Water_Noise_Scale: {r: 0.001, g: 0.001, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5567528231290948396

@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.16064787, g: 0.31688866, b: 0.4113207, a: 1}
+    m_Value: {r: 0.15411171, g: 0.37006313, b: 0.4188679, a: 1}
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.6754716, g: 0.50172526, b: 0.16695617, a: 1}
+    m_Value: {r: 0.690566, g: 0.5612402, b: 0.3114062, a: 1}
   balance:
     m_OverrideState: 1
     m_Value: 0
@@ -40,7 +40,6 @@ MonoBehaviour:
   - {fileID: 8577567627619837708}
   - {fileID: 7312820982360025470}
   - {fileID: 6415764842988986744}
-  - {fileID: 8004062977132807050}
   - {fileID: -7493886179375217318}
 --- !u!114 &6415764842988986744
 MonoBehaviour:
@@ -56,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   quality:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0
   enabled:
     m_OverrideState: 1
     m_Value: 1
@@ -69,10 +68,10 @@ MonoBehaviour:
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.75291777, b: 0.5566037, a: 1}
   maxFogDistance:
-    m_OverrideState: 0
-    m_Value: 5000
+    m_OverrideState: 1
+    m_Value: 50000
   mipFogMaxMip:
     m_OverrideState: 0
     m_Value: 0.5
@@ -84,24 +83,24 @@ MonoBehaviour:
     m_Value: 1000
   baseHeight:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1318.2
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 61.1
+    m_Value: 1318.2
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 10000
+    m_Value: 25000
   enableVolumetricFog:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   albedo:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.6150943, g: 0.2592197, b: 0.16131714, a: 1}
   globalLightProbeDimmer:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   depthExtent:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 64
   denoisingMode:
     m_OverrideState: 0
@@ -116,7 +115,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   m_FogControlMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   screenResolutionPercentage:
     m_OverrideState: 0
@@ -125,10 +124,10 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 64
   m_VolumetricFogBudget:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 0.25
   m_ResolutionDepthRatio:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.5
   directionalLightsOnly:
     m_OverrideState: 0
@@ -151,7 +150,7 @@ MonoBehaviour:
     m_Value: 3
   cloudType:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 1
@@ -160,7 +159,7 @@ MonoBehaviour:
     m_Value: 1000
   renderingSpace:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   centerMode:
     m_OverrideState: 1
     m_Value: 0
@@ -192,7 +191,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   threshold:
     m_OverrideState: 1
     m_Value: 0
@@ -216,86 +215,13 @@ MonoBehaviour:
     m_Value: 1
   m_Resolution:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 4
   m_HighQualityPrefiltering:
     m_OverrideState: 1
     m_Value: 0
   m_HighQualityFiltering:
     m_OverrideState: 1
-    m_Value: 1
---- !u!114 &8004062977132807050
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15cc4c5fcb677014ebdc0d8be227b40c, type: 3}
-  m_Name: ScreenSpaceLensFlare
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.35
-  tintColor:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  bloomMip:
-    m_OverrideState: 0
-    m_Value: 1
-  firstFlareIntensity:
-    m_OverrideState: 0
-    m_Value: 1
-  secondaryFlareIntensity:
-    m_OverrideState: 0
-    m_Value: 1
-  warpedFlareIntensity:
-    m_OverrideState: 0
-    m_Value: 1
-  warpedFlareScale:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1}
-  samples:
-    m_OverrideState: 0
-    m_Value: 1
-  sampleDimmer:
-    m_OverrideState: 0
-    m_Value: 0.5
-  vignetteEffect:
-    m_OverrideState: 0
-    m_Value: 1
-  startingPosition:
-    m_OverrideState: 0
-    m_Value: 1.25
-  scale:
-    m_OverrideState: 0
-    m_Value: 1.5
-  streaksIntensity:
-    m_OverrideState: 0
-    m_Value: 1
-  streaksLength:
-    m_OverrideState: 1
-    m_Value: 0.439
-  streaksOrientation:
-    m_OverrideState: 0
     m_Value: 0
-  streaksThreshold:
-    m_OverrideState: 1
-    m_Value: 0.164
-  resolution:
-    m_OverrideState: 0
-    m_Value: 4
-  spectralLut:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  chromaticAbberationIntensity:
-    m_OverrideState: 1
-    m_Value: 0.004
-  chromaticAbberationSampleCount:
-    m_OverrideState: 0
-    m_Value: 3
 --- !u!114 &8577567627619837708
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -341,13 +267,13 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0.082352936, g: 0.2905912, b: 0.5529412, a: 1}
+    m_Value: {r: 0, g: 0.7361555, b: 1, a: 1}
   middle:
     m_OverrideState: 1
-    m_Value: {r: 0.3, g: 0.7, b: 1, a: 1}
+    m_Value: {r: 0.90188676, g: 0.41502228, b: 0.30459943, a: 1}
   bottom:
     m_OverrideState: 1
-    m_Value: {r: 0.08679241, g: 0.010071487, b: 0, a: 1}
+    m_Value: {r: 0.3433962, g: 0.07927856, b: 0.014902061, a: 1}
   gradientDiffusion:
     m_OverrideState: 1
     m_Value: 1.2
@@ -546,7 +472,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   scatteringTint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.78104, b: 0.65471697, a: 1}
+    m_Value: {r: 0.8509433, g: 0.96615565, b: 1, a: 1}
   powderEffectIntensity:
     m_OverrideState: 0
     m_Value: 0.25
