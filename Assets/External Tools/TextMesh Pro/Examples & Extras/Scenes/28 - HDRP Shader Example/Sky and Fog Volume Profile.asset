@@ -22,6 +22,40 @@ MonoBehaviour:
   balance:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &-4669771748235645252
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b24b200358312b4fa1004e2431c2f1f, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 0.84555864, y: 0.888382, z: 1, w: 0}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.96055126, z: 0.9100371, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 0.9013711, y: 0.9429674, z: 1, w: 0}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 1
+    m_Value: 0.5
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,6 +75,48 @@ MonoBehaviour:
   - {fileID: 7312820982360025470}
   - {fileID: 6415764842988986744}
   - {fileID: -7493886179375217318}
+  - {fileID: 6263938155942053546}
+  - {fileID: -4669771748235645252}
+--- !u!114 &6263938155942053546
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1be1b6c95cd2e41b27903b9270817f, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 0
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0.1442004, b: 0.23773581, a: 1}
+  center:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.2
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 1
+  roundness:
+    m_OverrideState: 0
+    m_Value: 1
+  rounded:
+    m_OverrideState: 0
+    m_Value: 0
+  mask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  opacity:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &6415764842988986744
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -304,7 +380,7 @@ MonoBehaviour:
     m_Value: 1200
   altitudeRange:
     m_OverrideState: 1
-    m_Value: 2000
+    m_Value: 2100
   fadeInMode:
     m_OverrideState: 1
     m_Value: 0
@@ -472,7 +548,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   scatteringTint:
     m_OverrideState: 1
-    m_Value: {r: 0.8509433, g: 0.96615565, b: 1, a: 1}
+    m_Value: {r: 0.6377357, g: 0.27070403, b: 0, a: 1}
   powderEffectIntensity:
     m_OverrideState: 0
     m_Value: 0.25
@@ -511,10 +587,10 @@ MonoBehaviour:
     m_Value: 300
   ambientLightProbeDimmer:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.843
   sunLightDimmer:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.982
   erosionOcclusion:
     m_OverrideState: 0
     m_Value: 0.1
