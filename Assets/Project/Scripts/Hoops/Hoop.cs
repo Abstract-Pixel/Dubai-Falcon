@@ -5,6 +5,7 @@ public class Hoop : MonoBehaviour
 {
     public static Action OnHoopCollected;
     string hoopCollectedSoundKey = "HoopsCollected";
+    [SerializeField] ParticleSystem hoopCollectedParticles;
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out AirMovement player))
@@ -12,6 +13,8 @@ public class Hoop : MonoBehaviour
             OnHoopCollected?.Invoke();
             Destroy(gameObject);
             AudioManager.Instance.PlayAudio(hoopCollectedSoundKey);
+            ParticleSystem particle = Instantiate(hoopCollectedParticles,transform.position, Quaternion.identity,player.transform);
+            Destroy(particle.gameObject, particle.main.duration +0.5f);
         }
     }
 }
