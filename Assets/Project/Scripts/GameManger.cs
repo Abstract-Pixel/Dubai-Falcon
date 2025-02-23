@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
@@ -12,6 +13,9 @@ public class GameManger : MonoBehaviour
     [SerializeField] GameObject leaderboardText;
     [SerializeField] TimeManager time;
 
+    [SerializeField] UnityEvent OnGameWin;
+    [SerializeField] UnityEvent OnGameLose;
+
     string loseSoundKey = "GameLose";
     string winSoundKey = "GameWin";
 
@@ -23,14 +27,14 @@ public class GameManger : MonoBehaviour
         PauseUI?.SetActive(false);
         winscreen?.SetActive(false);
         leaderboardText?.SetActive(false);
-        PlayerDeath.OnFalconDie+=LoseState;
-        WinCondition.OnAllHoopsCollected+=WinState;
+        PlayerDeath.OnFalconDie += LoseState;
+        WinCondition.OnAllHoopsCollected += WinState;
     }
 
     private void OnDisable()
     {
-        PlayerDeath.OnFalconDie -=LoseState;
-        WinCondition.OnAllHoopsCollected-=WinState;
+        PlayerDeath.OnFalconDie -= LoseState;
+        WinCondition.OnAllHoopsCollected -= WinState;
     }
 
     private void Update()
@@ -61,6 +65,7 @@ public class GameManger : MonoBehaviour
         winscreen?.SetActive(true);
         leaderboardText?.SetActive(true);
         time?.StopTimer();
+        OnGameWin?.Invoke();
         Leaderboard.instance.UpdateLeaderboardUI();
         Leaderboard.instance.SaveLeaderboard();
         AudioManager.Instance.PlayAudio(winSoundKey);
@@ -71,6 +76,7 @@ public class GameManger : MonoBehaviour
         Time.timeScale = 0;
         losescreen?.SetActive(true);
         AudioManager.Instance.PlayAudio(loseSoundKey);
+        OnGameLose?.Invoke();
     }
 
     public void ResumeGame()

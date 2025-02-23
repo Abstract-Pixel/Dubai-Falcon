@@ -1,3 +1,5 @@
+using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using TMPro;
 using UnityEngine;
 
@@ -11,10 +13,13 @@ public class TimeManager : MonoBehaviour
     int seconds;
     int nanoseconds;
     float elapsedTime;
+    [SerializeField]MMF_Player feedbacks;
+    [SerializeField] int feedbackTrigger;
 
     private void Start()
     {
         StartTimer();
+        InvokeRepeating(nameof(TimerFeedbacks), 0, feedbackTrigger);
     }
 
     private void Update()
@@ -27,6 +32,8 @@ public class TimeManager : MonoBehaviour
             float fractionalSeconds = elapsedTime - Mathf.Floor(elapsedTime);
             nanoseconds = (int)(fractionalSeconds * 100);
             timerText.text = startText + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, nanoseconds);
+
+
         }
     }
 
@@ -46,5 +53,14 @@ public class TimeManager : MonoBehaviour
     {
         startTime = Time.time;
         timerText.text = "00:00";
+    }
+
+    void TimerFeedbacks()
+    {
+        if(isRunning)
+        {
+            feedbacks?.PlayFeedbacks();
+        }
+       
     }
 }
