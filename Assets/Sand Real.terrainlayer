@@ -6,7 +6,7 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewLayer
+  m_Name: Sand Real
   m_DiffuseTexture: {fileID: 2800000, guid: 474135715dbdd6e4b9fb8b1da1416aef, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: c6e0ce16ef1a9c34c9879db167c1037c, type: 3}
   m_MaskMapTexture: {fileID: 0}
