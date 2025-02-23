@@ -102,11 +102,11 @@ public class AirMovement : MonoBehaviour
 
             if (!flyingUpSoundPlayed)
             {
-                int probability = Random.Range(0, 3);
+                int probability = Random.Range(0, 4);
                 flyingUpSoundPlayed = true;
                 divingSoundPlayed = false;
                 AudioManager.Instance.StopAudio(windDivingSoundKey);
-                if (probability <2) return;
+                if (probability <3) return;
                 AudioManager.Instance.PlayAudio(falconFlyingUpKey);
             }
 
