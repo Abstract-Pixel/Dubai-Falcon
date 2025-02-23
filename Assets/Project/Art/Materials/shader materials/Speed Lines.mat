@@ -158,7 +158,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
-    - _Centre_Mask_Size: 0.7
+    - _Centre_Mask_Size: 0.39229584
     - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2
