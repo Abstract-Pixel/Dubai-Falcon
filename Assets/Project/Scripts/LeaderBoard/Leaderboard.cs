@@ -24,6 +24,7 @@ public class Leaderboard : MonoBehaviour
     private void Start()
     {
         instance = this;
+        LoadLeaderboard();
     }
 
     public void AddEntry(int minutes, int seconds, int nanoseconds, float totalTime)
@@ -44,12 +45,14 @@ public class Leaderboard : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
         if (extraEntryText != null)
             extraEntryText.text = "";
-
         leaderboardEntries.Sort((a, b) => a.elapsedTime.CompareTo(b.elapsedTime));
-        entryPrefab.SetActive(true);
-        for (int i = 0; i < leaderboardEntries.Count; i++)
+        int lastEntryIndex = leaderboardEntries.IndexOf(lastAddedEntry);
+        int topCount = Mathf.Min(leaderboardEntries.Count, 10);
+
+        for (int i = 0; i < topCount; i++)
         {
             LeaderboardEntry entry = leaderboardEntries[i];
             entry.entryObject = Instantiate(entryPrefab, leaderboardContainer, false);
@@ -60,19 +63,18 @@ public class Leaderboard : MonoBehaviour
             if (entryText != null)
             {
                 entryText.text = string.Format("{0}. {1}", i + 1, formattedTime);
-                entryText.color = Color.white;
-            }
-
-            if (i >= 10)
-            {
-                entry.entryObject.SetActive(false);
-                if (extraEntryText != null)
-                {
-                    extraEntryText.text += string.Format("{0}. {1}\n", i + 1, formattedTime);
-                }
+                entryText.color = (entry == lastAddedEntry) ? Color.yellow : Color.white;
             }
         }
+
+        if (lastEntryIndex >= 10 && extraEntryText != null)
+        {
+            string formattedTime = string.Format("{0:00}:{1:00}:{2:000}", lastAddedEntry.minutes, lastAddedEntry.seconds, lastAddedEntry.nanoseconds);
+            extraEntryText.text = string.Format("Your Time: {0}. {1}", lastEntryIndex + 1, formattedTime);
+            extraEntryText.color = Color.yellow;
+        }
     }
+    
 
     public void SaveLeaderboard()
     {
