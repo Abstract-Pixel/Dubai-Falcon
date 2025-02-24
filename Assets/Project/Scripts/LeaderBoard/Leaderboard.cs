@@ -56,7 +56,7 @@ public class Leaderboard : MonoBehaviour
             extraEntryText.color = Color.white; // Reset extra text color
         }
 
-        // Sort entries by elapsed time (ascending)
+        // Sort leaderboard entries by elapsed time (ascending)
         leaderboardEntries.Sort((a, b) => a.elapsedTime.CompareTo(b.elapsedTime));
 
         // Determine the index of the player's last entry (if any)
@@ -69,26 +69,26 @@ public class Leaderboard : MonoBehaviour
         int totalSlots = 10;
         for (int i = 0; i < totalSlots; i++)
         {
-            // Always instantiate a UI element for each slot (even if empty)
+            // Instantiate a UI element for each slot
             GameObject entryObj = Instantiate(entryPrefab, leaderboardContainer, false);
             entryObj.transform.SetSiblingIndex(i);
             TextMeshProUGUI entryText = entryObj.GetComponent<TextMeshProUGUI>();
 
-            // If an entry exists for this rank, display its details
             if (i < leaderboardEntries.Count)
             {
                 LeaderboardEntry entry = leaderboardEntries[i];
                 string formattedTime = string.Format("{0:00}:{1:00}:{2:000}", entry.minutes, entry.seconds, entry.nanoseconds);
                 if (entryText != null)
                 {
-                    entryText.text = string.Format("{0}. {1}", i + 1, formattedTime);
-                    // Highlight if this is the player's last entry
+                    // Display rank, player name, and time
+                    entryText.text = string.Format("{0}. {1} - {2}", i + 1, entry.playerName, formattedTime);
+                    // Highlight player's last entry
                     entryText.color = (entry == lastAddedEntry) ? Color.yellow : Color.white;
                 }
             }
             else
             {
-                // No entry available for this rank; just display the rank number
+                // No entry available; just display the rank
                 if (entryText != null)
                 {
                     entryText.text = string.Format("{0}.", i + 1);
@@ -101,7 +101,7 @@ public class Leaderboard : MonoBehaviour
         if (lastAddedEntry != null && lastEntryIndex >= totalSlots && extraEntryText != null)
         {
             string formattedTime = string.Format("{0:00}:{1:00}:{2:000}", lastAddedEntry.minutes, lastAddedEntry.seconds, lastAddedEntry.nanoseconds);
-            extraEntryText.text = string.Format("Your Time: {0}. {1}", lastEntryIndex + 1, formattedTime);
+            extraEntryText.text = string.Format("Your Time: {0}. {1} - {2}", lastEntryIndex + 1, lastAddedEntry.playerName, formattedTime);
             extraEntryText.color = Color.yellow;
         }
     }
