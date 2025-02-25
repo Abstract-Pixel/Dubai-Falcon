@@ -8,7 +8,7 @@ using UnityEngine.NVIDIA;
 [Serializable]
 public class DLSSSettings : DropDownSetting<string, int>
 {
-    [SerializeField] Camera camera = Camera.main;
+    [SerializeField] Camera camera ;
 
     public DLSSSettings()
     {

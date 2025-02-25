@@ -1,19 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
-public class NameEntry : MonoBehaviour
+public class NameEntryTMP : MonoBehaviour
 {
-    public InputField nameInputField;
+    public TMP_InputField nameInputField;
 
     public void ConfirmName()
     {
         string enteredName = nameInputField.text.Trim();
         if (string.IsNullOrEmpty(enteredName))
         {
-            enteredName = "Falco"; // Default if no name entered
+            enteredName = "Falco";
         }
         PlayerData.Instance.playerName = enteredName;
-        SceneManager.LoadScene("Level 1"); // Change to your leaderboard scene name
+        GameManger.instance.LoadGame();
     }
 }

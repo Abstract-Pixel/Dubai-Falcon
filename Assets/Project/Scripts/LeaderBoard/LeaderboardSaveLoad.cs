@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class LeaderboardEntryData
 {
-    public string playerName; // New field for player name
+    public string playerName;
     public float elapsedTime;
     public int minutes;
     public int seconds;
@@ -27,7 +27,7 @@ public static class LeaderboardSaveLoad
         {
             LeaderboardEntryData entryData = new LeaderboardEntryData
             {
-                playerName = entry.playerName, // Save the player's name
+                playerName = entry.playerName,
                 elapsedTime = entry.elapsedTime,
                 minutes = entry.minutes,
                 seconds = entry.seconds,
@@ -54,7 +54,7 @@ public static class LeaderboardSaveLoad
             {
                 LeaderboardEntry entry = new LeaderboardEntry
                 {
-                    playerName = entryData.playerName, // Load the player's name
+                    playerName = entryData.playerName,
                     elapsedTime = entryData.elapsedTime,
                     minutes = entryData.minutes,
                     seconds = entryData.seconds,

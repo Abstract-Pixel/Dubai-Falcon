@@ -6,6 +6,7 @@ public class GameManger : MonoBehaviour
 {
     public static GameManger instance;
     bool ispaused;
+    [SerializeField] bool main;
     [SerializeField] string sceneName;
     [SerializeField] GameObject losescreen;
     [SerializeField] GameObject winscreen;
@@ -39,7 +40,7 @@ public class GameManger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !main)
         {
             if (ispaused)
             {
@@ -61,13 +62,17 @@ public class GameManger : MonoBehaviour
 
     public void WinState()
     {
-        Time.timeScale = 0;
+        if (!main)
+        {
+            Time.timeScale = 0;
+        }
         winscreen?.SetActive(true);
         leaderboardText?.SetActive(true);
         time?.StopTimer();
         OnGameWin?.Invoke();
         Leaderboard.instance.UpdateLeaderboardUI();
         Leaderboard.instance.SaveLeaderboard();
+        Debug.Log("LOL");
         AudioManager.Instance.PlayAudio(winSoundKey);
     }
 

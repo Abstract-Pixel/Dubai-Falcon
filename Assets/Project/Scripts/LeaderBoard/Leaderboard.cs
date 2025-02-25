@@ -33,7 +33,7 @@ public class Leaderboard : MonoBehaviour
         string playerName = (PlayerData.Instance != null) ? PlayerData.Instance.playerName : "Falco";
 
         LeaderboardEntry newEntry = new LeaderboardEntry();
-        newEntry.playerName = playerName; // Save player's name with their time
+        newEntry.playerName = playerName;
         newEntry.elapsedTime = totalTime;
         newEntry.minutes = minutes;
         newEntry.seconds = seconds;
@@ -45,7 +45,6 @@ public class Leaderboard : MonoBehaviour
 
     public void UpdateLeaderboardUI()
     {
-        // Clear existing UI elements
         foreach (Transform child in leaderboardContainer)
         {
             Destroy(child.gameObject);
@@ -53,23 +52,20 @@ public class Leaderboard : MonoBehaviour
         if (extraEntryText != null)
         {
             extraEntryText.text = "";
-            extraEntryText.color = Color.white; // Reset extra text color
+            extraEntryText.color = Color.white;
         }
-
-        // Sort leaderboard entries by elapsed time (ascending)
         leaderboardEntries.Sort((a, b) => a.elapsedTime.CompareTo(b.elapsedTime));
-
-        // Determine the index of the player's last entry (if any)
         int lastEntryIndex = -1;
         if (lastAddedEntry != null)
         {
             lastEntryIndex = leaderboardEntries.IndexOf(lastAddedEntry);
         }
 
+        leaderboardEntries.RemoveAll(entry => entry.elapsedTime == 0);
+
         int totalSlots = 10;
         for (int i = 0; i < totalSlots; i++)
         {
-            // Instantiate a UI element for each slot
             GameObject entryObj = Instantiate(entryPrefab, leaderboardContainer, false);
             entryObj.transform.SetSiblingIndex(i);
             TextMeshProUGUI entryText = entryObj.GetComponent<TextMeshProUGUI>();
@@ -80,15 +76,12 @@ public class Leaderboard : MonoBehaviour
                 string formattedTime = string.Format("{0:00}:{1:00}:{2:000}", entry.minutes, entry.seconds, entry.nanoseconds);
                 if (entryText != null)
                 {
-                    // Display rank, player name, and time
                     entryText.text = string.Format("{0}. {1} - {2}", i + 1, entry.playerName, formattedTime);
-                    // Highlight player's last entry
                     entryText.color = (entry == lastAddedEntry) ? Color.yellow : Color.white;
                 }
             }
             else
             {
-                // No entry available; just display the rank
                 if (entryText != null)
                 {
                     entryText.text = string.Format("{0}.", i + 1);
@@ -96,8 +89,6 @@ public class Leaderboard : MonoBehaviour
                 }
             }
         }
-
-        // If the player's last entry exists and isn't in the top 10, display it separately
         if (lastAddedEntry != null && lastEntryIndex >= totalSlots && extraEntryText != null)
         {
             string formattedTime = string.Format("{0:00}:{1:00}:{2:000}", lastAddedEntry.minutes, lastAddedEntry.seconds, lastAddedEntry.nanoseconds);
@@ -105,16 +96,15 @@ public class Leaderboard : MonoBehaviour
             extraEntryText.color = Color.yellow;
         }
     }
-    
 
     public void SaveLeaderboard()
     {
+        leaderboardEntries.RemoveAll(entry => entry.elapsedTime == 0);
         LeaderboardSaveLoad.SaveLeaderboard(leaderboardEntries);
     }
 
     public void LoadLeaderboard()
     {
         leaderboardEntries = LeaderboardSaveLoad.LoadLeaderboard();
-        UpdateLeaderboardUI();
     }
 }
