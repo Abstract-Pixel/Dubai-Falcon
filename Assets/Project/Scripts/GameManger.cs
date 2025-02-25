@@ -65,6 +65,7 @@ public class GameManger : MonoBehaviour
         if (!main)
         {
             Time.timeScale = 0;
+            AudioManager.Instance.PlayAudio(winSoundKey);
         }
         winscreen?.SetActive(true);
         leaderboardText?.SetActive(true);
@@ -73,7 +74,6 @@ public class GameManger : MonoBehaviour
         Leaderboard.instance.UpdateLeaderboardUI();
         Leaderboard.instance.SaveLeaderboard();
         Debug.Log("LOL");
-        AudioManager.Instance.PlayAudio(winSoundKey);
     }
 
     public void LoseState()
