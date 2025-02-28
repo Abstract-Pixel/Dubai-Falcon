@@ -1,10 +1,18 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class NameEntryTMP : MonoBehaviour
 {
     public TMP_InputField nameInputField;
+    [SerializeField] KeyCode enter;
+
+    void Update()
+    {
+        if(Input.GetKeyDown(enter))
+        {
+            ConfirmName();
+        }
+    }
 
     public void ConfirmName()
     {
